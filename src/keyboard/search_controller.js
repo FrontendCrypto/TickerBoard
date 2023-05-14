@@ -9,19 +9,15 @@ export default class extends Controller {
         console.log('dentro search')
     }
     toggleVisibility() {
-        if (this.visibleValue) {
-            this.visibleValue = false
-            this.hideInput();
-        } else {
-            this.visibleValue = true
-            this.showInput();
-        }
+        this.visibleValue ? this.hideInput() : this.showInput();
     }
     showInput() {
+        this.visibleValue = true
         this.element.classList.add('show');
         this.inputTarget.focus();
     }
     hideInput() {
+        this.visibleValue = false
         this.element.classList.remove('show');
         this.clearInput();
     }

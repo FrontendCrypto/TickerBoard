@@ -31,15 +31,32 @@ export default class extends Controller {
     }
   }
 
+  showConfiguration (){
+    this.configurationValue = true;
+    const height = this.configurationTarget.offsetHeight;
+    const offset = height + 24 + 16;
+
+    this.configurationTarget.style.top = `-${offset}px`;
+   
+  }
+
+  hideConfiguration(){
+    this.configurationValue = false;
+    this.configurationTarget.style.top = "0";
+  }
+  toggleConfigurationVisibility() {
+    this.configurationValue ? this.hideConfiguration() : this.showConfiguration();
+  }
+
   showKeyboard() {
     this.element.style.bottom = 0;
-    this.configurationVisibilityManager();
+    this.hideConfiguration();
   }
 
   hideKeyBoard() {
     const height = this.element.offsetHeight;
     this.element.style.bottom = `-${height}px`;
-    this.configurationVisibilityManager();
+    this.hideConfiguration();
   }
 
   onKeypress(e) {
@@ -56,11 +73,6 @@ export default class extends Controller {
         break;
       case "favorite":
         break;
-      case "search":
-        break;
-      case "configuration":
-        this.configurationVisibilityManager();
-        console.log(this.configurationValue);
         break;
       case "action":
         console.log(e.currentTarget.dataset.value);
@@ -70,18 +82,7 @@ export default class extends Controller {
     }
   }
 
-  configurationVisibilityManager() {
-    const height = this.configurationTarget.offsetHeight;
-    const offset = height + 24 + 16;
-
-    if (this.configurationValue) {
-      this.configurationValue = false;
-      this.configurationTarget.style.top = `-${offset}px`;
-    } else {
-      this.configurationValue = true;
-      this.configurationTarget.style.top = "0";
-    }
-  }
+  
   showCategories() {
     this.categoriesTarget.style.display = "grid";
   }
