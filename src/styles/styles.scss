@@ -226,11 +226,38 @@ h4 {
   padding: 4px 16px;
 }
 
+.switch{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2px;
+  width: 48px;
+  height: 20px;;
+  background-color: blue;
+  border-radius: 10px;
+  transition: 0.2s ease-in-out;
+
+  .switch--indicator{
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: red;
+  }
+  &.active{
+    justify-content: flex-end;
+  
+    .switch--indicator{
+      background-color: green;
+    }
+  }
+}
+
 .search {
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  transition: 0.2s ease-in-out;
   .search--button,
   .search--clear {
     background-color: transparent;

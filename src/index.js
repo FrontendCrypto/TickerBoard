@@ -5,6 +5,7 @@ import { definitionsFromContext } from 'stimulus/webpack-helpers';
 import KeyboardController from './keyboard/keyboard_controller';
 import NotchController from './keyboard/notch_controller';
 import SearchController from './keyboard/search_controller';
+import SwitchController from './helpers/switch_controller';
 
 // Importa tus estilos CSS aquí
 import './styles/styles.scss';
