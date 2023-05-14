@@ -1,488 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release-pro/v4.0.0/css/solid.css"
-    />
-    <title>TickerBOard</title>
-  </head>
-  <body>
-    <div class="device">
-      <div class="navbar">
-        <button class="navbar--button">
-          <i class="uis uis-bars"></i>
-        </button>
-        <div class="navbar--content">
-          <img class="navbar--image" src="img/btc.svg" alt="" />
-          <span class="navbar--title">Bitcoin</span>
-        </div>
-        <button class="navbar--button">
-          <i class="uis uis-user-circle"></i>
-        </button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release-pro/v4.0.8/css/solid.css" />
+  <title>TickerBOard</title>
+</head>
+
+<body>
+  <div class="device">
+    <div class="navbar">
+      <button class="navbar--button">
+        <i class="uis uis-bars"></i>
+      </button>
+      <div class="navbar--content">
+        <img class="navbar--image" src="img/btc.svg" alt="" />
+        <span class="navbar--title">Bitcoin</span>
       </div>
+      <button class="navbar--button">
+        <i class="uis uis-user-circle"></i>
+      </button>
+    </div>
 
-      <div class="content">
-        <div class="asset-info">
-          <div class="asset--content">
-            <div class="asset-info--title">
-              <h3>Price</h3>
-            </div>
-            <div>
-              <div class="asset-info--value">
-                <h4>24.587,14 €</h4>
-              </div>
-              <div class="asset-info--change">
-                <i class="uis uis-angle-double-up"></i>
-                <span>5.68%</span>
-              </div>
-            </div>
+    <div class="content">
+      <div class="asset-info">
+        <div class="asset--content">
+          <div class="asset-info--title">
+            <h3>Price</h3>
           </div>
-          <div class="asset--content">
-            <div class="asset-info--title">
-              <h3>Balance</h3>
+          <div>
+            <div class="asset-info--value">
+              <h4>24.587,14 €</h4>
             </div>
-            <div>
-              <div class="asset-info--value">
-                <h4>0.876214 BTC</h4>
-              </div>
-              <div class="asset-info--subtitle">
-                <i class="uis uis-angle-double-up"></i>
-                <span>21.579,92 €</span>
-              </div>
+            <div class="asset-info--change">
+              <i class="uis uis-angle-double-up"></i>
+              <span>5.68%</span>
             </div>
           </div>
         </div>
-
-        <div class="chart">
-          <div class="chart--wrapper">
-            <img src="img/placeholder-chart.svg" alt="" />
+        <div class="asset--content">
+          <div class="asset-info--title">
+            <h3>Balance</h3>
           </div>
-          <div class="chart--timefrme-selector">
-            <button class="chart--button">1h</button>
-            <button class="chart--button">4h</button>
-            <button class="chart--button">12h</button>
-            <button class="chart--button">1D</button>
-            <button class="chart--button">3D</button>
-            <button class="chart--button">YTD</button>
+          <div>
+            <div class="asset-info--value">
+              <h4>0.876214 BTC</h4>
+            </div>
+            <div class="asset-info--subtitle">
+              <i class="uis uis-angle-double-up"></i>
+              <span>21.579,92 €</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div
-        class="keyboard background"
-        data-controller="keyboard--keyboard"
-        data-keyboard--keyboard-visible-value="true"
-        data-keyboard--keyboard-configuration-value="false"
-      >
-        <div
-          class="configuration"
-          data-keyboard--keyboard-target="configuration"
-        >
-          <div class="configuration--column">
-            <div class="favorite">
-                <button data-action="click->keyboard--keyboard#hideCategories">
-                  hide categories
-                </button>
-                <button data-action="click->keyboard--keyboard#showCategories">
-                  show categories
-                </button>
-              </div>
-              <div class="favorite">
-                <button data-action="click->keyboard--keyboard#hideActions">
-                  hide Actions
-                </button>
-                <button data-action="click->keyboard--keyboard#showActions">
-                  show categories
-                </button>
-              </div>
-            <div class="configuration--option">
-              <span>Mostrar favoritos</span>
-            </div>
-            <div class="configuration--option">
-              <span>Opción 2</span>
-            </div>
-          </div>
-          <div class="configuration--column">
-            <div class="configuration--option">
-              <span>Opcion 3</span>
-            </div>
-            <div class="configuration--option">
-              <span>Opción 4</span>
-            </div>
-          </div>
+      <div class="chart">
+        <div class="chart--wrapper">
+          <img src="img/placeholder-chart.svg" alt="" />
         </div>
-
-        <div
-          class="notch"
-          data-controller="keyboard--notch"
-          data-keyboard--keyboard-target="notch"
-        >
-          <i class="uis uis-grip-horizontal-line"></i>
-        </div>
-        <div class="keyboard--wrapper">
-          <div class="control">
-            <button
-              class="control--button"
-              data-keyboard--keyboard-target="key"
-              data-action="click->keyboard--keyboard#onKeypress"
-              data-type="search"
-              data-value="search"
-            >
-              <i class="uis uis-search"></i>
-            </button>
-            <div class="control--favorites">
-              add something
-            </div>
-            <button
-              class="control--button"
-              data-keyboard--keyboard-target="key"
-              data-action="click->keyboard--keyboard#onKeypress"
-              data-type="configuration"
-              data-value="configuration"
-            >
-              <i class="uis uis-setting"></i>
-            </button>
-          </div>
-
-          <div class="categories" data-keyboard--keyboard-target="categories">
-            <button class="keyboard--navigation navigation--prev">
-              <i class="uis uis-angle-left-b"></i>
-            </button>
-            <div class="categories--wrapper">
-              <button
-                class="category"
-                data-keyboard--keyboard-target="key"
-                data-action="click->keyboard--keyboard#onKeypress"
-                data-type="category"
-                data-value="NFT"
-              >
-                <i class="uis uis-scenery"></i>
-                <p class="category--ticker">NFT</p>
-              </button>
-              <button
-                class="category"
-                data-keyboard--keyboard-target="key"
-                data-action="click->keyboard--keyboard#onKeypress"
-                data-type="category"
-                data-value="GameFi"
-              >
-                <i class="uis uis-scenery"></i>
-                <p class="category--ticker">GameFi</p>
-              </button>
-              <button
-                class="category"
-                data-keyboard--keyboard-target="key"
-                data-action="click->keyboard--keyboard#onKeypress"
-                data-type="category"
-                data-value="DeFi"
-              >
-                <i class="uis uis-channel"></i>
-                <p class="category--ticker">DeFi</p>
-              </button>
-              <button
-                class="category"
-                data-keyboard--keyboard-target="key"
-                data-action="click->keyboard--keyboard#onKeypress"
-                data-type="category"
-                data-value="CEX"
-              >
-                <i class="uis uis-scenery"></i>
-                <p class="category--ticker">CEX</p>
-              </button>
-              <button
-                class="category"
-                data-keyboard--keyboard-target="key"
-                data-action="click->keyboard--keyboard#onKeypress"
-                data-type="category"
-                data-value="DEX"
-              >
-                <i class="uis uis-scenery"></i>
-                <p class="category--ticker">DEX</p>
-              </button>
-              <button
-                class="category"
-                data-keyboard--keyboard-target="key"
-                data-action="click->keyboard--keyboard#onKeypress"
-                data-type="category"
-                data-value="PoW"
-              >
-                <i class="uis uis-scenery"></i>
-                <p class="category--ticker">PoW</p>
-              </button>
-            </div>
-            <button class="keyboard--navigation navigation--next">
-              <i class="uis uis-angle-right-b"></i>
-            </button>
-          </div>
-
-          <div class="coins">
-            <button class="keyboard--navigation navigation--prev">
-              <i class="uis uis-angle-left-b"></i>
-            </button>
-            <div class="coins--wrapper">
-              <div class="coins--row">
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-              </div>
-              <div class="coins--row">
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-              </div>
-              <div class="coins--row">
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-                <button
-                  class="coin"
-                  data-keyboard--keyboard-target="key"
-                  data-action="click->keyboard--keyboard#onKeypress"
-                  data-type="ticker"
-                  data-value="BTC"
-                >
-                  <img class="coin--icon" src="img/btc.svg" alt="" />
-                  <p class="coin--ticker">BTC</p>
-                </button>
-              </div>
-            </div>
-            <button class="keyboard--navigation navigation--next">
-              <i class="uis uis-angle-right-b"></i>
-            </button>
-          </div>
-
-          <div class="actions" data-keyboard--keyboard-target="actions">
-            <button
-              class="action"
-              data-keyboard--keyboard-target="key"
-              data-action="click->keyboard--keyboard#onKeypress"
-              data-type="action"
-              data-value="buy"
-            >
-              <i class="uis uis-arrow-down"></i>
-              <span>Buy</span>
-            </button>
-            <button
-              class="action"
-              data-keyboard--keyboard-target="key"
-              data-action="click->keyboard--keyboard#onKeypress"
-              data-type="action"
-              data-value="sell"
-            >
-              <i class="uis uis-arrow-up"></i>
-              <span>Sell</span>
-            </button>
-            <button
-              class="action"
-              data-keyboard--keyboard-target="key"
-              data-action="click->keyboard--keyboard#onKeypress"
-              data-type="action"
-              data-value="swap"
-            >
-              <i class="uis uis-exchange-alt"></i>
-              <span>Swap</span>
-            </button>
-            <button
-              class="action"
-              data-keyboard--keyboard-target="key"
-              data-action="click->keyboard--keyboard#onKeypress"
-              data-type="action"
-              data-value="deposit"
-            >
-              <i class="uis uis-arrow-down-left"></i>
-              <span>Deposit</span>
-            </button>
-            <button
-              class="action"
-              data-keyboard--keyboard-target="key"
-              data-action="click->keyboard--keyboard#onKeypress"
-              data-type="action"
-              data-value="withdraw"
-            >
-              <i class="uis uis-arrow-up-right"></i>
-              <span>Withdraw</span>
-            </button>
-            <button
-              class="action"
-              data-keyboard--keyboard-target="key"
-              data-action="click->keyboard--keyboard#onKeypress"
-              data-type="action"
-              data-value="favorite"
-            >
-              <i class="uis uis-favorite"></i>
-              <span>Favorite</span>
-            </button>
-          </div>
+        <div class="chart--timefrme-selector">
+          <button class="chart--button">1h</button>
+          <button class="chart--button">4h</button>
+          <button class="chart--button">12h</button>
+          <button class="chart--button">1D</button>
+          <button class="chart--button">3D</button>
+          <button class="chart--button">YTD</button>
         </div>
       </div>
     </div>
 
-    <script src="bundle.js"></script>
-  </body>
+    <div class="keyboard background" data-controller="keyboard--keyboard" data-keyboard--keyboard-visible-value="true"
+      data-keyboard--keyboard-configuration-value="false">
+      <div class="configuration" data-keyboard--keyboard-target="configuration">
+        <div class="configuration--column">
+          <div class="favorite">
+            <button data-action="click->keyboard--keyboard#hideCategories">
+              hide categories
+            </button>
+            <button data-action="click->keyboard--keyboard#showCategories">
+              show categories
+            </button>
+          </div>
+          <div class="favorite">
+            <button data-action="click->keyboard--keyboard#hideActions">
+              hide Actions
+            </button>
+            <button data-action="click->keyboard--keyboard#showActions">
+              show categories
+            </button>
+          </div>
+          <div class="configuration--option">
+            <span>Mostrar favoritos</span>
+          </div>
+          <div class="configuration--option">
+            <span>Opción 2</span>
+          </div>
+        </div>
+        <div class="configuration--column">
+          <div class="configuration--option">
+            <span>Opcion 3</span>
+          </div>
+          <div class="configuration--option">
+            <span>Opción 4</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="notch" data-controller="keyboard--notch" data-keyboard--keyboard-target="notch">
+        <i class="uis uis-grip-horizontal-line"></i>
+      </div>
+      <div class="keyboard--wrapper">
+        <div class="control">
+
+          <div 
+            class="search"
+            data-controller="keyboard--search"
+            data-keyboard--search-visible-value="false">
+            <div class="search--wrapper">
+              <button 
+              class="search--button"
+              data-action="click->keyboard--search#toggleVisibility"
+              data-keyboard--search-target="button">
+              <i class="uis uis-search"></i>
+            </button>
+            <input 
+            type="text"
+            class="search--input"
+            data-keyboard--search-target="input">
+            <button 
+              class="search--clear"
+              data-action="click->keyboard--search#clearInput"
+              data-keyboard--search-target="clear">
+              <i class="uis uis-times"></i>
+            </button>
+            </div>
+          </div>
+
+
+          <button class="control--button" data-keyboard--keyboard-target="key"
+            data-action="click->keyboard--keyboard#onKeypress" data-type="configuration" data-value="configuration">
+            <i class="uis uis-setting"></i>
+          </button>
+        </div>
+
+        <div class="categories" data-keyboard--keyboard-target="categories">
+          <button class="keyboard--navigation navigation--prev">
+            <i class="uis uis-angle-left-b"></i>
+          </button>
+          <div class="categories--wrapper">
+            <button class="category" data-keyboard--keyboard-target="key"
+              data-action="click->keyboard--keyboard#onKeypress" data-type="category" data-value="NFT">
+              <i class="uis uis-scenery"></i>
+              <p class="category--ticker">NFT</p>
+            </button>
+            <button class="category" data-keyboard--keyboard-target="key"
+              data-action="click->keyboard--keyboard#onKeypress" data-type="category" data-value="GameFi">
+              <i class="uis uis-scenery"></i>
+              <p class="category--ticker">GameFi</p>
+            </button>
+            <button class="category" data-keyboard--keyboard-target="key"
+              data-action="click->keyboard--keyboard#onKeypress" data-type="category" data-value="DeFi">
+              <i class="uis uis-channel"></i>
+              <p class="category--ticker">DeFi</p>
+            </button>
+            <button class="category" data-keyboard--keyboard-target="key"
+              data-action="click->keyboard--keyboard#onKeypress" data-type="category" data-value="CEX">
+              <i class="uis uis-scenery"></i>
+              <p class="category--ticker">CEX</p>
+            </button>
+            <button class="category" data-keyboard--keyboard-target="key"
+              data-action="click->keyboard--keyboard#onKeypress" data-type="category" data-value="DEX">
+              <i class="uis uis-scenery"></i>
+              <p class="category--ticker">DEX</p>
+            </button>
+            <button class="category" data-keyboard--keyboard-target="key"
+              data-action="click->keyboard--keyboard#onKeypress" data-type="category" data-value="PoW">
+              <i class="uis uis-scenery"></i>
+              <p class="category--ticker">PoW</p>
+            </button>
+          </div>
+          <button class="keyboard--navigation navigation--next">
+            <i class="uis uis-angle-right-b"></i>
+          </button>
+        </div>
+
+        <div class="coins">
+          <button class="keyboard--navigation navigation--prev">
+            <i class="uis uis-angle-left-b"></i>
+          </button>
+          <div class="coins--wrapper">
+            <div class="coins--row">
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+            </div>
+            <div class="coins--row">
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+            </div>
+            <div class="coins--row">
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+              <button class="coin" data-keyboard--keyboard-target="key"
+                data-action="click->keyboard--keyboard#onKeypress" data-type="ticker" data-value="BTC">
+                <img class="coin--icon" src="img/btc.svg" alt="" />
+                <p class="coin--ticker">BTC</p>
+              </button>
+            </div>
+          </div>
+          <button class="keyboard--navigation navigation--next">
+            <i class="uis uis-angle-right-b"></i>
+          </button>
+        </div>
+
+        <div class="actions" data-keyboard--keyboard-target="actions">
+          <button class="action" data-keyboard--keyboard-target="key" data-action="click->keyboard--keyboard#onKeypress"
+            data-type="action" data-value="buy">
+            <i class="uis uis-arrow-down"></i>
+            <span>Buy</span>
+          </button>
+          <button class="action" data-keyboard--keyboard-target="key" data-action="click->keyboard--keyboard#onKeypress"
+            data-type="action" data-value="sell">
+            <i class="uis uis-arrow-up"></i>
+            <span>Sell</span>
+          </button>
+          <button class="action" data-keyboard--keyboard-target="key" data-action="click->keyboard--keyboard#onKeypress"
+            data-type="action" data-value="swap">
+            <i class="uis uis-exchange-alt"></i>
+            <span>Swap</span>
+          </button>
+          <button class="action" data-keyboard--keyboard-target="key" data-action="click->keyboard--keyboard#onKeypress"
+            data-type="action" data-value="deposit">
+            <i class="uis uis-arrow-down-left"></i>
+            <span>Deposit</span>
+          </button>
+          <button class="action" data-keyboard--keyboard-target="key" data-action="click->keyboard--keyboard#onKeypress"
+            data-type="action" data-value="withdraw">
+            <i class="uis uis-arrow-up-right"></i>
+            <span>Withdraw</span>
+          </button>
+          <button class="action" data-keyboard--keyboard-target="key" data-action="click->keyboard--keyboard#onKeypress"
+            data-type="action" data-value="favorite">
+            <i class="uis uis-favorite"></i>
+            <span>Favorite</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="bundle.js"></script>
+</body>
+
 </html>

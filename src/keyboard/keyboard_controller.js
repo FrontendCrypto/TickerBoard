@@ -33,6 +33,7 @@ export default class extends Controller {
 
   showKeyboard() {
     this.element.style.bottom = 0;
+    this.configurationVisibilityManager();
   }
 
   hideKeyBoard() {
@@ -72,12 +73,13 @@ export default class extends Controller {
   configurationVisibilityManager() {
     const height = this.configurationTarget.offsetHeight;
     const offset = height + 24 + 16;
+
     if (this.configurationValue) {
       this.configurationValue = false;
-      this.configurationTarget.style.top = "0";
+      this.configurationTarget.style.top = `-${offset}px`;
     } else {
       this.configurationValue = true;
-      this.configurationTarget.style.top = `-${offset}px`;
+      this.configurationTarget.style.top = "0";
     }
   }
   showCategories() {

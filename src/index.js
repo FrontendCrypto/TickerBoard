@@ -4,9 +4,10 @@ import { definitionsFromContext } from 'stimulus/webpack-helpers';
 // Importa tus módulos de JavaScript aquí
 import KeyboardController from './keyboard/keyboard_controller';
 import NotchController from './keyboard/notch_controller';
+import SearchController from './keyboard/search_controller';
 
 // Importa tus estilos CSS aquí
-import './styles.css';
+import './styles/styles.scss';
 
 // Inicializa Stimulus
 const application = Application.start();
