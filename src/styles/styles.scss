@@ -97,6 +97,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: transparent;
+  color: $lightSurfaceContentMedium;
 }
 
 .content {
@@ -149,7 +150,8 @@ h4 {
 .chart--button {
   height: 32px;
 
-  &.active, &.active:hover {
+  &.active,
+  &.active:hover {
     background-color: $lightSurfaceHigh;
     color: $lightSurfaceContentHigh;
     font-weight: 700;
@@ -165,7 +167,6 @@ h4 {
   background-color: $lightBackground;
   padding-bottom: 2px;
 }
-
 
 .keyboard--wrapper {
   z-index: 3;
@@ -376,7 +377,7 @@ h4 {
 .coins--wrapper {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   row-gap: 4px;
   column-gap: 2px;
 }

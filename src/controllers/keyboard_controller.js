@@ -4,27 +4,32 @@ export default class extends Controller {
   static targets = ["key", "configuration", "notch", "categories", "actions"];
   static values = {
     configuration: Boolean,
-    categories: Boolean,
     visible: Boolean,
   };
 
-
+  // @todo set preferences in localStorage
 
   connect() {
     this.startY = 0;
-    this.listen()
+    this.element.addEventListener("dragstart", this.dragStart.bind(this));
+    this.element.addEventListener("dragend", this.dragEnd.bind(this));
   }
 
-  listen() {
-    this.notchTarget.addEventListener("dragstart", this.dragStart.bind(this));
-    this.notchTarget.addEventListener("dragend", this.dragEnd.bind(this));
-    document.addEventListener('show-categories', () => { this.showCategories() })
-    document.addEventListener('hide-categories', () => { this.hideCategories() })
-    document.addEventListener('show-actions', () => { this.showActions() })
-    document.addEventListener('hide-actions', () => { this.hideActions() })
+  manageChunksVisibility(event) {
+    const status = event.detail.status;
+    const target = event.detail.target;
+
+    switch (target) {
+      case 'categories':
+        status ? this.showCategories() : this.hideCategories()
+        break
+      case 'actions':
+        status ? this.showActions() : this.hideActions()
+        break
+    }
+
   }
 
-  // @todo la lógica del drag debe de ir en un controlador propio del notch
   dragStart(event) {
     this.startY = event.clientY;
   }
@@ -74,12 +79,12 @@ export default class extends Controller {
     const height = this.configurationTarget.offsetHeight;
     const offset = height + 24 + 16;
 
-    this.configurationValue = true;
+    // this.configurationValue = true;
     this.configurationTarget.style.top = `-${offset}px`;
   }
 
   hideConfiguration() {
-    this.configurationValue = false;
+    // this.configurationValue = false;
     this.configurationTarget.style.top = "0";
   }
 

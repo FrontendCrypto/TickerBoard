@@ -2,21 +2,17 @@ import { Application } from 'stimulus';
 import { definitionsFromContext } from 'stimulus/webpack-helpers';
 
 // Importa tus módulos de JavaScript aquí
-import KeyboardController from './keyboard/keyboard_controller';
-import NotchController from './keyboard/notch_controller';
-import SearchController from './keyboard/search_controller';
-import SwitchController from './helpers/switch_controller';
+import KeyboardController from './controllers/keyboard_controller';
+// import NotchController from './controllers/notch_controller';
+import SearchController from './controllers/search_controller';
+import SwitchController from './controllers/switch_controller';
+import CoinController from './controllers/coin_controller';
 
 // Importa tus estilos CSS aquí
 import './styles/styles.scss';
 
 // Inicializa Stimulus
 const application = Application.start();
-const context = require.context('./', true, /\.js$/);
+const context = require.context('./controllers/', true, /\.js$/);
 application.load(definitionsFromContext(context));
-
-// Crea una instancia del controlador
-const myController = application.getControllerForElementAndIdentifier(document.body, 'my-controller');
-if (myController) {
-  myController.connect();
-}
+// application.debug = true
