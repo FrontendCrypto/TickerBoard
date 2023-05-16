@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = ["key", "configuration", "notch", "categories", "actions"];
   static values = {
     configuration: Boolean,
-    visible: Boolean,
   };
 
   // @todo set preferences in localStorage
@@ -27,7 +26,6 @@ export default class extends Controller {
         status ? this.showActions() : this.hideActions()
         break
     }
-
   }
 
   dragStart(event) {
@@ -43,6 +41,10 @@ export default class extends Controller {
     } else if (deltaY < 0) {
       this.showKeyboard();
     }
+  }
+
+  toggleConfiguration() {
+    this.configurationValue ? this.hideConfiguration() : this.showConfiguration();
   }
 
   showKeyboard() {
@@ -72,24 +74,17 @@ export default class extends Controller {
   hideActions() {
     this.actionsTarget.style.display = "none";
   }
-
-
-
   showConfiguration() {
     const height = this.configurationTarget.offsetHeight;
     const offset = height + 24 + 16;
 
-    // this.configurationValue = true;
+    this.configurationValue = true;
     this.configurationTarget.style.top = `-${offset}px`;
   }
 
   hideConfiguration() {
-    // this.configurationValue = false;
+    this.configurationValue = false;
     this.configurationTarget.style.top = "0";
-  }
-
-  toggleConfigurationVisibility() {
-    this.configurationValue ? this.hideConfiguration() : this.showConfiguration();
   }
 
 }
