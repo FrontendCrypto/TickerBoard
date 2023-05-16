@@ -25,7 +25,8 @@
       </button>
     </div>
 
-    <div class="content">
+    <div class="content"
+    data-controller="content">
       <div class="asset-info">
         <div class="asset--content">
           <div class="asset-info--title">
@@ -33,7 +34,7 @@
           </div>
           <div>
             <div class="asset-info--value">
-              <h4>24.587,14 €</h4>
+              <h4 data-content-target="price">24.587,14 €</h4>
             </div>
             <div class="asset-info--change">
               <i class="uis uis-angle-double-up"></i>
@@ -217,9 +218,8 @@
             <button 
             class="key coin" 
             data-keyboard-target="key"
-            data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="btc">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="btc">
               <img class="coin--icon" src="images/btc.svg" alt="" />
               <p class="coin--ticker">BTC</p>
             </button>
@@ -227,8 +227,8 @@
             class="key coin"
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="eth">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="eth">
               <img class="coin--icon" src="images/eth.svg" alt="" />
               <p class="coin--ticker">ETH</p>
             </button>
@@ -236,8 +236,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="usdt">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="usdt">
               <img class="coin--icon" src="images/usdt.svg" alt="" />
               <p class="coin--ticker">USDT</p>
             </button>
@@ -245,8 +245,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="bnb">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="bnb">
               <img class="coin--icon" src="images/bnb.svg" alt="" />
               <p class="coin--ticker">BNB</p>
             </button>
@@ -254,8 +254,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="usdc">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="usdc">
               <img class="coin--icon" src="images/usdc.svg" alt="" />
               <p class="coin--ticker">USDC</p>
             </button>
@@ -263,8 +263,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="matic">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="matic">
               <img class="coin--icon" src="images/matic.svg" alt="" />
               <p class="coin--ticker">MATIC</p>
             </button>
@@ -272,8 +272,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="xrp">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="xrp">
               <img class="coin--icon" src="images/XRP.svg" alt="" />
               <p class="coin--ticker">XRP</p>
             </button>
@@ -281,8 +281,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="ada">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="ada">
               <img class="coin--icon" src="images/ada.svg" alt="" />
               <p class="coin--ticker">ADA</p>
             </button>
@@ -290,8 +290,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="doge">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="doge">
               <img class="coin--icon" src="images/doge.svg" alt="" />
               <p class="coin--ticker">DOGE</p>
             </button>
@@ -299,8 +299,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="matic">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="matic">
               <img class="coin--icon" src="images/matic.svg" alt="" />
               <p class="coin--ticker">MATIC</p>
             </button>
@@ -308,8 +308,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="sol">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="sol">
               <img class="coin--icon" src="images/sol.svg" alt="" />
               <p class="coin--ticker">SOL</p>
             </button>
@@ -317,8 +317,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="dot">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="dot">
               <img class="coin--icon" src="images/dot.svg" alt="" />
               <p class="coin--ticker">DOT</p>
             </button>
@@ -326,8 +326,8 @@
             class="key coin"
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="ltc">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="ltc">
               <img class="coin--icon" src="images/ltc.svg" alt="" />
               <p class="coin--ticker">LTC</p>
             </button>
@@ -335,8 +335,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="busd">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="busd">
               <img class="coin--icon" src="images/BUSD.svg" alt="" />
               <p class="coin--ticker">BUSD</p>
             </button>
@@ -344,8 +344,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="shib">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="shib">
               <img class="coin--icon" src="images/shib.svg" alt="" />
               <p class="coin--ticker">SHIB</p>
             </button>
@@ -353,8 +353,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="trx">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="trx">
               <img class="coin--icon" src="images/trx.svg" alt="" />
               <p class="coin--ticker">TRX</p>
             </button>
@@ -362,8 +362,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="avax">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="avax">
               <img class="coin--icon" src="images/avax.svg" alt="" />
               <p class="coin--ticker">AVAX</p>
             </button>
@@ -371,8 +371,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="dai">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="dai">
               <img class="coin--icon" src="images/dai.svg" alt="" />
               <p class="coin--ticker">DAI</p>
             </button>
@@ -380,8 +380,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="wbtc">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="wbtc">
               <img class="coin--icon" src="images/wbtc.svg" alt="" />
               <p class="coin--ticker">WBTC</p>
             </button>
@@ -389,8 +389,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="link">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="link">
               <img class="coin--icon" src="images/link.svg" alt="" />
               <p class="coin--ticker">LINK</p>
             </button>
@@ -398,8 +398,8 @@
             class="key coin" 
             data-keyboard-target="key"
             data-controller="keyboard--coin"
-            data-action="click->keyboard--coin#onSelectedCoin"
-            data-keyboard--coin-ticker-value="leo">
+            data-action="click->keyboard#onSelectedCoin"
+            data-ticker="leo">
               <img class="coin--icon" src="images/leo.svg" alt="" />
               <p class="coin--ticker">LEO</p>
             </button>

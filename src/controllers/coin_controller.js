@@ -1,4 +1,5 @@
 import { Controller } from "stimulus";
+import { marketData } from '../data';
 
 export default class extends Controller {
     static values = {

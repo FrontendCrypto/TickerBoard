@@ -1,4 +1,5 @@
 import { Controller } from "stimulus";
+import { marketData } from '../data';
 
 export default class extends Controller {
   static targets = ["key", "configuration", "notch", "categories", "actions"];
@@ -12,6 +13,15 @@ export default class extends Controller {
     this.startY = 0;
     this.element.addEventListener("dragstart", this.dragStart.bind(this));
     this.element.addEventListener("dragend", this.dragEnd.bind(this));
+  }
+
+  onSelectedCoin(event) {
+    // @todo refactor: use stimulus built ins instead dispatch custom event
+    const ticker = event.currentTarget.dataset['ticker'];
+    const tickerData = marketData[ticker];
+    const updateContentEvent = new CustomEvent('update-content', {detail: tickerData});
+
+    document.dispatchEvent(updateContentEvent)
   }
 
   manageChunksVisibility(event) {

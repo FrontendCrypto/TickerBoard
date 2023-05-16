@@ -6,6 +6,7 @@ import KeyboardController from './controllers/keyboard_controller';
 import SearchController from './controllers/search_controller';
 import SwitchController from './controllers/switch_controller';
 import CoinController from './controllers/coin_controller';
+import ContentController from './controllers/content_controller';
 
 // Importa tus estilos CSS aquí
 import './styles/styles.scss';
