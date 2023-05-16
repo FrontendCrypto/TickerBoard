@@ -3,7 +3,6 @@ import { definitionsFromContext } from 'stimulus/webpack-helpers';
 
 // Importa tus módulos de JavaScript aquí
 import KeyboardController from './controllers/keyboard_controller';
-// import NotchController from './controllers/notch_controller';
 import SearchController from './controllers/search_controller';
 import SwitchController from './controllers/switch_controller';
 import CoinController from './controllers/coin_controller';
