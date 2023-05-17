@@ -11,22 +11,23 @@
 </head>
 
 <body>
-  <div class="device">
+  <div class="device" 
+  data-controller="content"
+  data-content-change-value="5.68">
     <div class="navbar">
       <button class="navbar--button">
         <i class="uis uis-bars"></i>
       </button>
       <div class="navbar--content">
-        <img class="navbar--image" src="images/btc.svg" alt="" />
-        <span class="navbar--title">Bitcoin</span>
+        <img class="navbar--image" data-content-target="icon" src="images/btc.svg" alt="" />
+        <span class="navbar--title" data-content-target="name">Bitcoin</span>
       </div>
       <button class="navbar--button">
         <i class="uis uis-user-circle"></i>
       </button>
     </div>
 
-    <div class="content"
-    data-controller="content">
+    <div class="content">
       <div class="asset-info">
         <div class="asset--content">
           <div class="asset-info--title">
@@ -37,8 +38,8 @@
               <h4 data-content-target="price">24.587,14 €</h4>
             </div>
             <div class="asset-info--change">
-              <i class="uis uis-angle-double-up"></i>
-              <span>5.68%</span>
+              <i data-content-target="changeDirection" class="uis uis-angle-double-up"></i>
+              <span><span data-content-target="change">5.68</span>%</span>
             </div>
           </div>
         </div>
@@ -48,11 +49,10 @@
           </div>
           <div>
             <div class="asset-info--value">
-              <h4>0.876214 BTC</h4>
+              <h4 data-content-target="quantity">0.876214 BTC</h4>
             </div>
             <div class="asset-info--subtitle">
-              <i class="uis uis-angle-double-up"></i>
-              <span>21.579,92 €</span>
+              <span data-content-target="currencyBalance">21.579,92 €</span>
             </div>
           </div>
         </div>

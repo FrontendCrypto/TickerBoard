@@ -1,5 +1,5 @@
 import { Controller } from "stimulus";
-import { marketData } from '../data';
+import { marketData, walletBalances } from '../data';
 
 export default class extends Controller {
   static targets = ["key", "configuration", "notch", "categories", "actions"];
@@ -18,8 +18,8 @@ export default class extends Controller {
   onSelectedCoin(event) {
     // @todo refactor: use stimulus built ins instead dispatch custom event
     const ticker = event.currentTarget.dataset['ticker'];
-    const tickerData = marketData[ticker];
-    const updateContentEvent = new CustomEvent('update-content', {detail: tickerData});
+    const data = [marketData[ticker], walletBalances[ticker]];
+    const updateContentEvent = new CustomEvent('update-content', {detail: data});
 
     document.dispatchEvent(updateContentEvent)
   }
