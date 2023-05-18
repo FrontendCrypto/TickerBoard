@@ -7,6 +7,7 @@ import SearchController from './controllers/search_controller';
 import SwitchController from './controllers/switch_controller';
 import CoinController from './controllers/coin_controller';
 import ContentController from './controllers/content_controller';
+import PriceController from './controllers/price_controller';
 
 // Import third party
 import Chart from 'stimulus-chartjs'
