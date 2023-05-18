@@ -63,8 +63,7 @@ export default class extends Controller {
             this.changeDirectionTarget.classList.add('uis-angle-double-down')
             this.changeDirectionTarget.classList.remove('uis-angle-double-up')
         }
-
-
+        
     }
 
 }
