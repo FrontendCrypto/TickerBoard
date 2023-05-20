@@ -10,7 +10,7 @@ import ContentController from './controllers/content_controller';
 import PriceController from './controllers/price_controller';
 
 // Import third party
-import Chart from 'stimulus-chartjs'
+// import Chart from 'stimulus-chartjs'
 
 // Importa tus estilos CSS aquí
 import './styles/styles.scss';
@@ -19,5 +19,5 @@ import './styles/styles.scss';
 const application = Application.start();
 const context = require.context('./controllers/', true, /\.js$/);
 application.load(definitionsFromContext(context));
-application.register('chart', Chart)
+// application.register('chart', Chart)
 // application.debug = true
