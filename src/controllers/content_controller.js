@@ -15,10 +15,19 @@ export default class extends Controller {
   };
 
   connect() {
-    this.onUpdateContent();
+    document.addEventListener('update-content', this.handleUpdateContent);
+    this.updateContent();
   }
 
-  onUpdateContent() {
+  disconnect() {
+    document.removeEventListener('update-content', this.handleUpdateContent);
+  }
+
+  handleUpdateContent = (event) => {
+    this.updateContent(event.detail[0], event.detail[1]);
+  };
+
+  updateContent() {
     document.addEventListener('update-content', (event) => {
       const market = event.detail[0];
       const balances = event.detail[1];
@@ -82,9 +91,9 @@ export default class extends Controller {
         minimumFractionDigits: 2,
       }).format(number);
     } else {
-      new Intl.NumberFormat('es-ES', { minimumFractionDigits: 2 }).format(
-        number,
-      );
+      formattedCurrency = new Intl.NumberFormat('es-ES', {
+        minimumFractionDigits: 2,
+      }).format(number);
     }
 
     return formattedCurrency;

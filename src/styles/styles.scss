@@ -28,6 +28,10 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  font-family: 'Kanit', sans-serif;
+}
+
 .background {
 }
 
@@ -89,10 +93,6 @@ body {
 .navbar--image {
 }
 
-.navbar--title {
-  font-weight: 700;
-}
-
 .navbar--button {
   width: 32px;
   height: 32px;
@@ -111,7 +111,7 @@ body {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  padding-top: 80px;
+  padding-top: 72px;
   gap: 24px;
 }
 
@@ -123,27 +123,52 @@ body {
   width: 100%;
 }
 
+.asset--wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
 .asset--content {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
+.asset--price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.asset--image {
+  width: 48px;
+}
+
 h3 {
-  font-size: 12px;
+  font-size: 16px;
+  color: $lightSurfaceContentMedium;
 }
 
 h4 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
+  color: $lightSurfaceContentHigh;
 }
 
 .asset-info--subtitle {
-  font-size: 14px;
-  color: #5e5e5e;
+  font-size: 16px;
+  color: $lightSurfaceContentMedium;
 }
 
-.asset-info--change {
+.change {
+  &__up {
+    color: green !important;
+  }
+  &__down {
+    color: red !important;
+  }
 }
 
 .chart--timefrme-selector {
@@ -425,8 +450,10 @@ h4 {
 }
 
 .coin--ticker {
-  font-size: 8px;
+  font-size: 10px;
   margin: 0;
+  font-weight: 500;
+  color: $lightSurfaceContentMedium;
 }
 
 .actions {

@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://unicons.iconscout.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release-pro/v4.0.8/css/solid.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap"
+    />
     <title>TickerBoard</title>
   </head>
-
-  <!-- @todo Configure HTML, JS and SCSS style rules: breaks, indents... -->
 
   <body>
     <div
@@ -25,13 +32,7 @@
           <i class="uis uis-bars"></i>
         </button>
         <div class="navbar--content">
-          <img
-            class="navbar--image"
-            data-content-target="icon"
-            src="images/btc.svg"
-            alt=""
-          />
-          <span class="navbar--title" data-content-target="name">
+          <span data-content-target="name">
             Bitcoin
           </span>
         </div>
@@ -41,48 +42,53 @@
       </div>
 
       <div class="content">
-        <div class="asset-info">
-          <div class="asset--content">
-            <div class="asset-info--title">
-              <h3>Price</h3>
-            </div>
-            <div>
-              <div class="asset-info--value">
-                <h4 data-content-target="price">24.587,14 €</h4>
-              </div>
-              <div class="asset-info--change">
+        
+        <div>
+          <div class="asset-info">
+          <div class="asset--wrapper">
+            <img
+              class="asset--image"
+              data-content-target="icon"
+              src="images/btc.svg"
+              alt=""
+            />
+            <div class="asset--price">
+              <h4 data-content-target="price">24.587,14 €</h4>
+              <div class="asset-info--subtitle change__up">
+                <span><span data-content-target="change">5.68</span>%</span>
                 <i
                   data-content-target="changeDirection"
                   class="uis uis-angle-double-up"
                 ></i>
-                <span><span data-content-target="change">5.68</span>%</span>
-              </div>
-            </div>
-          </div>
-          <div class="asset--content">
-            <div class="asset-info--title">
-              <h3>Balance</h3>
-            </div>
-            <div>
-              <div class="asset-info--value">
-                <h4 data-content-target="quantity">0.876214 BTC</h4>
-              </div>
-              <div class="asset-info--subtitle">
-                <span data-content-target="currencyBalance">21.579,92 €</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div data-controller="price">
-          <div data-price-target="canvas"></div>
-          <div class="chart--timefrme-selector">
+        <div data-controller="chart">
+          <div data-chart-target="canvas"></div>
+          <!-- <div class="chart--timefrme-selector">
             <button class="key chart--button">1h</button>
             <button class="key chart--button active">4h</button>
             <button class="key chart--button">12h</button>
             <button class="key chart--button">1D</button>
             <button class="key chart--button">3D</button>
             <button class="key chart--button">YTD</button>
+          </div> -->
+        </div>
+        </div>
+
+        <div class="asset--content">
+          <div class="asset-info--title">
+            <h3>Balance</h3>
+          </div>
+          <div>
+            <div class="asset-info--value">
+              <h4 data-content-target="quantity">0.876214 BTC</h4>
+            </div>
+            <div class="asset-info--subtitle">
+              <span data-content-target="currencyBalance">21.579,92 €</span>
+            </div>
           </div>
         </div>
       </div>

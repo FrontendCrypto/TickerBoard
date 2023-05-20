@@ -17,7 +17,7 @@
         "babel-loader": "^9.1.2",
         "css-loader": "^6.7.4",
         "mini-css-extract-plugin": "^2.7.6",
-        "node-sass": "^8.0.0",
+        "node-sass": "^9.0.0",
         "postcss": "^8.4.23",
         "postcss-loader": "^7.3.0",
         "sass-loader": "^13.2.2",
@@ -30,7 +30,7 @@
     },
     "dependencies": {
         "apexcharts": "^3.40.0",
-        "eslint": "^8.7.0",
+        "eslint": "^8.41.0",
         "reset-css": "^5.0.1",
         "stimulus-carousel": "^5.0.1",
         "swiper": "^9.3.2"
