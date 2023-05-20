@@ -27,34 +27,50 @@ export default class extends Controller {
   get defaultOptions() {
     return {
       chart: {
-        type: 'line',
+        type: 'area',
         foreColor: marketData['btc'].chart.foreColor,
         toolbar: {
           show: false,
+        },
+        height: 180,
+      },
+      grid: {
+        xaxis: {
+          lines: {
+            show: false,
+          },
+        },
+        yaxis: {
+          lines: {
+            show: false,
+          },
+          labels: {
+            show: false,
+          },
+        },
+        padding: {
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0,
         },
       },
       series: marketData['btc'].chart.series,
       xaxis: {
         categories: [
-          'January',
-          'February',
-          'March',
-          'April',
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
           'May',
-          'June',
-          'July',
+          'Jun',
+          'Jul',
         ],
-        labels: {
-          show: false,
-        },
+        // labels: {
+        //   show: false,
+        // },
         axisBorder: {
-          show: false,
-        },
-        axisTicks: {
-          show: false,
-        },
-        grid: {
-          show: false,
+          show: true,
         },
       },
       yaxis: {
@@ -62,23 +78,18 @@ export default class extends Controller {
         grid: {
           show: false,
         },
-        labels: {
-          show: false,
-        },
       },
       stroke: {
-        width: 1.5,
+        width: 0,
         curve: 'smooth',
         colors: [marketData['btc'].chart.foreColor], // Configura el color de la línea
       },
-      toolbar: {
-        show: false,
-      },
-      // tooltip: {
-      //   dataLabels: {
-      //     enabled: false
-      //   }
-      // }
+      tooltip: {
+        enabled: false,
+        dataLabels: {
+          enabled: false
+        }
+      }
     };
   }
 }

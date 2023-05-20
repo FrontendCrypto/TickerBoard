@@ -5,11 +5,18 @@ export default class extends Controller {
   static values = {
     active: Boolean,
     target: String,
-    type: String,
   };
 
   connect() {
-    this.toggleManager(this.element);
+    if (this.hasStatusTarget) {
+      this.checkLocalStorage();
+    }
+  }
+
+  checkLocalStorage() {
+    const status = localStorage.getItem(this.targetValue);
+
+    status === 'true' ? this.enable(this.element) : this.disable(this.element);
   }
 
   toggleManager(element) {
@@ -21,26 +28,23 @@ export default class extends Controller {
   }
 
   activeValueChanged() {
-    let status;
-    let target = this.targetValue;
-    if (this.activeValue) {
-      status = true;
-    } else {
-      status = false;
-    }
+    const status = this.activeValue;
+    const target = this.targetValue;
 
-    this.dispatch('toggle', { detail: { status, target: target } });
+    this.dispatch('toggle', { detail: { status, target } });
   }
 
   enable(element) {
     this.activeValue = true;
-    this.statusTarget.innerHTML = 'Hide';
+    this.statusTarget.textContent = 'Hide';
+    localStorage.setItem(this.targetValue, true);
     element.classList.add('active');
   }
 
   disable(element) {
     this.activeValue = false;
-    this.statusTarget.innerHTML = 'Show';
+    this.statusTarget.textContent = 'Show';
+    localStorage.setItem(this.targetValue, false);
     element.classList.remove('active');
   }
 }
