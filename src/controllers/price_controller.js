@@ -1,65 +1,84 @@
-import Chart from 'stimulus-chartjs'
+import { Controller } from 'stimulus';
+import ApexCharts from 'apexcharts';
 
-import { marketData } from '../data'
+import { marketData } from '../data';
 
-export default class extends Chart {
+export default class extends Controller {
+  static targets = ['canvas'];
   connect() {
-    super.connect()
+    this.chart = new ApexCharts(this.canvasTarget, this.defaultOptions);
+    this.chart.data = marketData['btc'].chart;
 
-    // The chart.js instance
-    this.chart
+    this.chart.render();
+    this.onUpdateContent();
+  }
 
-    // Options from the data attribute.
-    this.options
+  onUpdateContent() {
+    document.addEventListener('update-content', (event) => {
+      const market = event.detail[0];
+      const ticker = market['ticker'];
 
-    // Default options for every charts.
-    this.defaultOptions
+      console.log('Chart data:', market);
 
-    this.chart.data = marketData["btc"].chart;
-    this.chart.data.datasets[0].tension = 0.4;
-    this.chart.data.datasets[0].borderColor = '#F7931A';
-    this.chart.update()
+      this.chart.updateSeries(market.chart.series);
+    });
   }
 
   get defaultOptions() {
     return {
-      type: 'line',
-      options: {
-        plugins: {
-          legend: {
-            display: false,
-          },
-          tooltip: {
-            enabled: true,
-            intersect: false,
-            mode: 'nearest',
-          },
-        },
-        scales: {
-          x: {
-            display: false,
-            grid: {
-              display: false,
-            },
-            ticks: {
-              display: false,
-            },
-          },
-          y: {
-            display: false,
-            grid: {
-              display: false,
-            },
-            ticks: {
-              display: false,
-            },
-          },
-        },
-        interaction: {
-          intersect: false,
-          mode: 'index',
+      chart: {
+        type: 'line',
+        foreColor: marketData['btc'].chart.foreColor,
+        toolbar: {
+          show: false,
         },
       },
-    }
+      series: marketData['btc'].chart.series,
+      xaxis: {
+        categories: [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+        ],
+        labels: {
+          show: false,
+        },
+        axisBorder: {
+          show: false,
+        },
+        axisTicks: {
+          show: false,
+        },
+        grid: {
+          show: false,
+        },
+      },
+      yaxis: {
+        show: false,
+        grid: {
+          show: false,
+        },
+        labels: {
+          show: false,
+        },
+      },
+      stroke: {
+        width: 1.5,
+        curve: 'smooth',
+        colors: [marketData['btc'].chart.foreColor], // Configura el color de la línea
+      },
+      toolbar: {
+        show: false,
+      },
+      // tooltip: {
+      //   dataLabels: {
+      //     enabled: false
+      //   }
+      // }
+    };
   }
 }

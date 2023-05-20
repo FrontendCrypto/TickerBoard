@@ -1,8 +1,8 @@
-import { Controller } from "stimulus";
+import { Controller } from 'stimulus';
 import { marketData, walletBalances } from '../data';
 
 export default class extends Controller {
-  static targets = ["key", "configuration", "notch", "categories", "actions"];
+  static targets = ['key', 'configuration', 'notch', 'categories', 'actions'];
   static values = {
     configuration: Boolean,
   };
@@ -11,17 +11,19 @@ export default class extends Controller {
 
   connect() {
     this.startY = 0;
-    this.element.addEventListener("dragstart", this.dragStart.bind(this));
-    this.element.addEventListener("dragend", this.dragEnd.bind(this));
+    this.element.addEventListener('dragstart', this.dragStart.bind(this));
+    this.element.addEventListener('dragend', this.dragEnd.bind(this));
+    // console.log([marketData, walletBalances])
   }
 
   onSelectedCoin(event) {
     // @todo refactor: use stimulus built ins instead dispatch custom event
-    const ticker = event.currentTarget.dataset['ticker'];
+    const ticker = event.currentTarget.dataset['ticker'].toLowerCase();
     const data = [marketData[ticker], walletBalances[ticker]];
-    const updateContentEvent = new CustomEvent('update-content', {detail: data});
-
-    document.dispatchEvent(updateContentEvent)
+    const updateContentEvent = new CustomEvent('update-content', {
+      detail: data,
+    });
+    document.dispatchEvent(updateContentEvent);
   }
 
   manageChunksVisibility(event) {
@@ -30,11 +32,11 @@ export default class extends Controller {
 
     switch (target) {
       case 'categories':
-        status ? this.showCategories() : this.hideCategories()
-        break
+        status ? this.showCategories() : this.hideCategories();
+        break;
       case 'actions':
-        status ? this.showActions() : this.hideActions()
-        break
+        status ? this.showActions() : this.hideActions();
+        break;
     }
   }
 
@@ -54,7 +56,9 @@ export default class extends Controller {
   }
 
   toggleConfiguration() {
-    this.configurationValue ? this.hideConfiguration() : this.showConfiguration();
+    this.configurationValue
+      ? this.hideConfiguration()
+      : this.showConfiguration();
   }
 
   showKeyboard() {
@@ -70,19 +74,19 @@ export default class extends Controller {
   }
 
   showCategories() {
-    this.categoriesTarget.style.display = "grid";
+    this.categoriesTarget.style.display = 'grid';
   }
 
   hideCategories() {
-    this.categoriesTarget.style.display = "none";
+    this.categoriesTarget.style.display = 'none';
   }
 
   showActions() {
-    this.actionsTarget.style.display = "grid";
+    this.actionsTarget.style.display = 'grid';
   }
 
   hideActions() {
-    this.actionsTarget.style.display = "none";
+    this.actionsTarget.style.display = 'none';
   }
   showConfiguration() {
     const height = this.configurationTarget.offsetHeight;
@@ -94,7 +98,6 @@ export default class extends Controller {
 
   hideConfiguration() {
     this.configurationValue = false;
-    this.configurationTarget.style.top = "0";
+    this.configurationTarget.style.top = '0';
   }
-
 }
