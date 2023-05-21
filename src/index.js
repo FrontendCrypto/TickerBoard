@@ -8,6 +8,8 @@ import SwitchController from './controllers/switch_controller';
 import CoinController from './controllers/coin_controller';
 import ContentController from './controllers/content_controller';
 import ChartController from './controllers/chart_controller';
+import CurrencySelector from './controllers/currency-selector_controller';
+import ActionsController from './controllers/actions_controller'
 
 // Import third party
 // import Chart from 'stimulus-chartjs'

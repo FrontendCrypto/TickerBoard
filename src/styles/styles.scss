@@ -18,6 +18,8 @@ $lightSurfaceContentLow: #dadada;
 $lightSurfaceContentMedium: #5d5d5d;
 $lightSurfaceContentHigh: #292929;
 
+// @todo Refactor to BEM
+
 html {
   box-sizing: border-box;
 }
@@ -32,17 +34,13 @@ body {
   font-family: 'Kanit', sans-serif;
 }
 
-.background {
-}
+.background {}
 
-.light-surface-low {
-}
+.light-surface-low {}
 
-.light-surface-medium {
-}
+.light-surface-medium {}
 
-.light-surface-contentlow {
-}
+.light-surface-contentlow {}
 
 .light-surface-content-medium {
   color: $lightSurfaceContentMedium;
@@ -90,8 +88,7 @@ body {
   gap: 8px;
 }
 
-.navbar--image {
-}
+.navbar--image {}
 
 .navbar--button {
   width: 32px;
@@ -166,6 +163,7 @@ h4 {
   &__up {
     color: green !important;
   }
+
   &__down {
     color: red !important;
   }
@@ -391,9 +389,9 @@ h4 {
 
 .categories--wrapper {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-template-rows: 1fr;
   gap: 4px;
-  width: 100%;
 }
 
 .category--ticker {
@@ -467,6 +465,29 @@ h4 {
 .category {
   height: 48px;
   font-size: 9px;
+}
+
+.category {
+  grid-row: 1;
+  padding: 0 16px;
+  &.active{
+    // background-color: red;
+    position: relative;
+    &::after{
+      position: absolute;
+      content: '+1';
+      top: 4px;
+      right: 4px;
+      width: 16px;
+      height: 16px;
+      z-index: 1;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $lightSurfaceHigh;
+    }
+  }
 }
 
 .action .uis,
