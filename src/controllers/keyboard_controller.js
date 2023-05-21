@@ -3,7 +3,7 @@ import { marketData, walletBalances } from '../data';
 import Muuri from 'muuri';
 
 export default class extends Controller {
-  static targets = ['key', 'configuration', 'notch', 'categories', 'actions', 'grid', 'category'];
+  static targets = ['key', 'coin', 'configuration', 'notch', 'categories', 'actions', 'grid', 'category'];
   static values = {
     configuration: Boolean,
   };
@@ -16,6 +16,7 @@ export default class extends Controller {
     this.element.addEventListener('dragend', this.dragEnd.bind(this));
     // console.log([marketData, walletBalances])
 
+    // @todo refactor
     document.addEventListener('on-favorite-action', () => {
       this.categoryTargets.forEach((element) => {
         const category = element.dataset.category
@@ -27,6 +28,18 @@ export default class extends Controller {
           }, 1000)
         }
       })
+    })
+
+    // @todo Refactor
+    // @todo check if selected coin is favorite => refactor controllers and use outlets
+    this.coinTargets.forEach((element)=>{
+      const isFavorite = element.dataset.favorite === 'true' // "data attribute to boolean" FIX
+      console.log(typeof isFavorite)
+      if(isFavorite){
+        element.classList.add('favorite');
+      } else{
+        element.classList.remove('favorite');
+      }
     })
 
   }
