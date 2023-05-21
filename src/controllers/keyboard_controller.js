@@ -1,8 +1,9 @@
 import { Controller } from 'stimulus';
 import { marketData, walletBalances } from '../data';
+import Muuri from 'muuri';
 
 export default class extends Controller {
-  static targets = ['key', 'configuration', 'notch', 'categories', 'actions'];
+  static targets = ['key', 'configuration', 'notch', 'categories', 'actions', 'grid', 'category'];
   static values = {
     configuration: Boolean,
   };
@@ -14,6 +15,20 @@ export default class extends Controller {
     this.element.addEventListener('dragstart', this.dragStart.bind(this));
     this.element.addEventListener('dragend', this.dragEnd.bind(this));
     // console.log([marketData, walletBalances])
+
+    document.addEventListener('on-favorite-action', () => {
+      this.categoryTargets.forEach((element) => {
+        const category = element.dataset.category
+        // console.log(category)
+        if (category === 'favorites') {
+          element.classList.add('active')
+          setTimeout(()=>{
+            element.classList.remove('active')
+          }, 1000)
+        }
+      })
+    })
+
   }
 
   onSelectedCoin(event) {
