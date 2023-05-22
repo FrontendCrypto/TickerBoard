@@ -1,6 +1,5 @@
 import { Controller } from 'stimulus';
-import { marketData, walletBalances } from '../data';
-import Muuri from 'muuri';
+
 
 export default class extends Controller {
   static targets = ['key', 'coin', 'configuration', 'notch', 'categories', 'actions', 'grid', 'category'];
@@ -14,44 +13,6 @@ export default class extends Controller {
     this.startY = 0;
     this.element.addEventListener('dragstart', this.dragStart.bind(this));
     this.element.addEventListener('dragend', this.dragEnd.bind(this));
-    // console.log([marketData, walletBalances])
-
-    // @todo refactor
-    document.addEventListener('on-favorite-action', () => {
-      this.categoryTargets.forEach((element) => {
-        const category = element.dataset.category
-        // console.log(category)
-        if (category === 'favorites') {
-          element.classList.add('active')
-          setTimeout(()=>{
-            element.classList.remove('active')
-          }, 1000)
-        }
-      })
-    })
-
-    // @todo Refactor
-    // @todo check if selected coin is favorite => refactor controllers and use outlets
-    this.coinTargets.forEach((element)=>{
-      const isFavorite = element.dataset.favorite === 'true' // "data attribute to boolean" FIX
-      console.log(typeof isFavorite)
-      if(isFavorite){
-        element.classList.add('favorite');
-      } else{
-        element.classList.remove('favorite');
-      }
-    })
-
-  }
-
-  onSelectedCoin(event) {
-    // @todo refactor: use stimulus built ins instead dispatch custom event
-    const ticker = event.currentTarget.dataset['ticker'].toLowerCase();
-    const data = [marketData[ticker], walletBalances[ticker]];
-    const updateContentEvent = new CustomEvent('update-content', {
-      detail: data,
-    });
-    document.dispatchEvent(updateContentEvent);
   }
 
   manageChunksVisibility(event) {

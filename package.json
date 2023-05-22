@@ -20,7 +20,7 @@
         "node-sass": "^9.0.0",
         "postcss": "^8.4.23",
         "postcss-loader": "^7.3.0",
-        "sass-loader": "^13.2.2",
+        "sass-loader": "^13.3.0",
         "stimulus": "^3.2.1",
         "style-loader": "^3.3.3",
         "terser-webpack-plugin": "^5.3.9",
