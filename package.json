@@ -29,6 +29,7 @@
         "webpack-dev-server": "^4.6.0"
     },
     "dependencies": {
+        "animejs": "^3.2.1",
         "apexcharts": "^3.40.0",
         "eslint": "^8.41.0",
         "reset-css": "^5.0.1",

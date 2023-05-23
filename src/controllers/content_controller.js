@@ -22,20 +22,27 @@ export default class extends Controller {
 
     connect() {
         document.addEventListener('update-content', this.handleUpdateContent);
-        document.addEventListener('update-currency', this.handleUpdateCurrency())
+        document.addEventListener('update-currency', this.handleUpdateCurrency());
 
         this.updateContent();
         this.updateCurrency();
 
-        document.addEventListener('on-selected-coin', (event) => {
+        // document.addEventListener('on-selected-coin', (event) => {
 
-        })
+        // })
     }
 
     onFavoriteKeyAction() {
-        this.favoriteKeyCategoryTarget.classList.add('active')
+        const data = {
+            ticker: this.tickerValue,
+            isFavorite: this.isFavoriteValue,
+        }
+        const onFavoriteEvent = new CustomEvent('on-favorite', { detail: data });
+        document.dispatchEvent(onFavoriteEvent);
+
+        this.favoriteKeyCategoryTarget.classList.add('active');
         setTimeout(() => {
-            this.favoriteKeyCategoryTarget.classList.remove('active')
+            this.favoriteKeyCategoryTarget.classList.remove('active');
         }, 1000)
     }
 

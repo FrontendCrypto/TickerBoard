@@ -1,75 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://unicons.iconscout.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release-pro/v4.0.8/css/solid.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap"
-    />
-    <title>TickerBoard</title>
-  </head>
 
-  <body>
-    <div
-      class="device"
-      data-controller="content"
-      data-content-key-outlet=".key"
-      data-content-change-value="5.68"
-      data-content-ticker-value="btc"
-      data-content-isFavorite-value
-    >
-      <div class="navbar">
-        <button class="navbar--button">
-          <i class="uis uis-bars"></i>
-        </button>
-        <div class="navbar--content">
-          <span data-content-target="name">
-            Bitcoin
-          </span>
-        </div>
-        <button class="navbar--button">
-          <i class="uis uis-user-circle"></i>
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://unicons.iconscout.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release-pro/v4.0.8/css/solid.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" />
+  <title>TickerBoard</title>
+</head>
+
+<body>
+  <div class="device" data-controller="content" data-content-key-outlet=".key" data-content-change-value="5.68"
+    data-content-ticker-value="btc" data-content-isFavorite-value>
+    <div class="navbar">
+      <button class="navbar--button">
+        <i class="uis uis-bars"></i>
+      </button>
+      <div class="navbar--content">
+        <span data-content-target="name">
+          Bitcoin
+        </span>
       </div>
+      <button class="navbar--button">
+        <i class="uis uis-user-circle"></i>
+      </button>
+    </div>
 
-      <div class="content">
-        
-        <div>
-          <div class="asset-info">
+    <div class="content">
+      <div>
+        <div class="asset-info">
           <div class="asset--wrapper">
-            <img
-              class="asset--image"
-              data-content-target="icon"
-              src="images/btc.svg"
-              alt=""
-            />
+            <img class="asset--image" data-content-target="icon" src="images/btc.svg" alt="" />
             <div class="asset--price">
               <!-- Load from content controller, avoid hardcoded placeholders -->
               <h4 data-content-target="price">24.587,14 <span data-content-target="currency">EUR</span></h4>
               <div class="asset-info--subtitle change__up">
                 <span><span data-content-target="change">5.68</span>%</span>
-                <i
-                  data-content-target="changeDirection"
-                  class="uis uis-angle-double-up"
-                ></i>
+                <i data-content-target="changeDirection" class="uis uis-angle-double-up"></i>
                 <span>24h</span>
               </div>
             </div>
           </div>
         </div>
-
         <div data-controller="chart">
           <div data-chart-target="canvas"></div>
           <!-- <div class="chart--timefrme-selector">
@@ -81,572 +60,293 @@
             <button class="key chart--button">YTD</button>
           </div> -->
         </div>
-        </div>
-
-        <div class="asset--content">
-          <div class="asset-info--title">
-            <h3>Balance</h3>
-          </div>
-          <div>
-            <div class="asset-info--value">
-              <h4 data-content-target="quantity">0.876214 BTC</h4>
-            </div>
-            <div class="asset-info--subtitle">
-              <span data-content-target="currencyBalance">21.579,92 <span data-content-target="currency">EUR</span></span>
-            </div>
-          </div>
-        </div>
       </div>
-
-      <div
-        class="keyboard"
-        data-controller="keyboard"
-        data-keyboard-configuration-value="false"
-        data-action="switch:toggle->keyboard#manageChunksVisibility"
-      >
-        <div class="configuration" data-keyboard-target="configuration">
-          <div class="configuration--wrapper">
-            <div 
-            class=""
-            data-controller="currency-selector"
-            data-currency-selector-currency-value="EUR"
-            >
-              <label for="currency-selector">Display in</label>
-              <select 
-              name="currency-selector" 
-              id=""
-              data-action="change->currency-selector#currencyChange"
-              >
-                <option value="EUR" selected>EUR (€)</option>
-                <option value="USD" >USD ($)</option>
-              </select>
-            </div>
-            <div
-              class="switch"
-              data-controller="switch"
-              data-action="click->switch#toggle"
-              data-switch-target-value="categories"
-              data-switch-active-value="true"
-            >
-              <div class="switch--element">
-                <div class="switch--indicator"></div>
-              </div>
-              <div class="switch--label">
-                <span data-switch-target="status">Hide</span>
-                <span>categories</span>
-              </div>
-            </div>
-
-            <div
-              class="switch"
-              data-controller="switch"
-              data-action="click->switch#toggle"
-              data-switch-target-value="actions"
-              data-switch-active-value="true"
-            >
-              <div class="switch--element">
-                <div class="switch--indicator"></div>
-              </div>
-              <div class="switch--label">
-                <span data-switch-target="status">Hide</span>
-                <span>actions</span>
-              </div>
-            </div>
-          </div>
+      <div class="asset--content">
+        <div class="asset-info--title">
+          <h3>Balance</h3>
         </div>
-
-        <div class="notch" data-controller="notch" data-keyboard-target="notch">
-          <i class="uis uis-grip-horizontal-line"></i>
-        </div>
-        <div class="keyboard--wrapper">
-          <div class="control">
-            <div
-              class="search"
-              data-controller="search"
-              data-search-visible-value="false"
-            >
-              <div class="search--wrapper">
-                <button
-                  class="search--button"
-                  data-action="click->search#toggleVisibility"
-                  data-search-target="button"
-                >
-                  <i class="uis uis-search"></i>
-                </button>
-                <input
-                  type="text"
-                  class="search--input"
-                  data-action="keydown->search#onKeyPress"
-                  data-search-target="input"
-                />
-                <button
-                  class="search--clear"
-                  style="display: none"
-                  data-action="click->search#clearInput"
-                  data-search-target="clear"
-                >
-                  <i class="uis uis-times"></i>
-                </button>
-              </div>
-            </div>
-
-            <button
-              class="configuration--button"
-              data-keyboard-target="key"
-              data-action="click->keyboard#toggleConfiguration"
-              data-value="configuration"
-            >
-              <i class="uis uis-setting"></i>
-            </button>
+        <div>
+          <div class="asset-info--value">
+            <h4 data-content-target="quantity">0.876214 BTC</h4>
           </div>
-
-          <div class="categories" data-keyboard-target="categories">
-            <button class="keyboard--navigation navigation--prev">
-              <i class="uis uis-angle-left-b"></i>
-            </button>
-            <div class="categories--wrapper">
-              <button
-                class="key category"
-                data-keyboard-target="category"
-                data-category="all"
-              >
-                <i class="uis uis-scenery"></i>
-                <p class="category--ticker">All</p>
-              </button>
-              <button
-                class="key category"
-                data-keyboard-target="category"
-                data-content-target="favoriteKeyCategory"
-                data-category="favorites"
-              >
-                <i class="uis uis-scenery"></i>
-                <p class="category--ticker">Favorites</p>
-              </button>
-              <button
-                class="key category"
-                data-keyboard-target="category"
-                data-category="gameFi"
-              >
-                <i class="uis uis-scenery"></i>
-                <p class="category--ticker">GameFi</p>
-              </button>
-              <button
-                class="key category"
-                data-keyboard-target="category"
-                data-category="defi"
-              >
-                <i class="uis uis-channel"></i>
-                <p class="category--ticker">DeFi</p>
-              </button>
-              <button
-                class="key category"
-                data-keyboard-target="category"
-                data-category="cex"
-              >
-                <i class="uis uis-scenery"></i>
-                <p class="category--ticker">CEX</p>
-              </button>
-              <button
-                class="key category"
-                data-keyboard-target="category"
-                data-category="dex"
-              >
-                <i class="uis uis-scenery"></i>
-                <p class="category--ticker">DEX</p>
-              </button>
-              <button
-                class="key category"
-                data-keyboard-target="category"
-                data-category="pow"
-              >
-                <i class="uis uis-scenery"></i>
-                <p class="category--ticker">PoW</p>
-              </button>
-            </div>
-            <button class="keyboard--navigation navigation--next">
-              <i class="uis uis-angle-right-b"></i>
-            </button>
-          </div>
-
-          <div class="coins">
-            <button class="keyboard--navigation navigation--prev">
-              <i class="uis uis-angle-left-b"></i>
-            </button>
-            <div data-keyboard-target="coins-grid" class="coins--wrapper">
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="true"
-                data-key-category="all"
-                data-keyboard-target="coin"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="BTC"
-                data-key-ticker-value="BTC"
-                data-key-selected-value="true"
-                data-key-selected-class="selected"
-              >
-                <img class="coin--icon" src="images/btc.svg" alt="" />
-                <p class="coin--ticker">BTC</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="ETH"
-                data-key-ticker-value="ETH"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/eth.svg" alt="" />
-                <p class="coin--ticker">ETH</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="USDT"
-                data-key-ticker-value="USDT"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/usdt.svg" alt="" />
-                <p class="coin--ticker">USDT</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="BNB"
-                data-key-ticker-value="BNB"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/bnb.svg" alt="" />
-                <p class="coin--ticker">BNB</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="USDC"
-                data-key-ticker-value="USDC"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/usdc.svg" alt="" />
-                <p class="coin--ticker">USDC</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="MATIC"
-                data-key-ticker-value="MATIC"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/matic.svg" alt="" />
-                <p class="coin--ticker">MATIC</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="XRP"
-                data-key-ticker-value="XRP"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/XRP.svg" alt="" />
-                <p class="coin--ticker">XRP</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="ADA"
-                data-key-ticker-value="ADA"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/ada.svg" alt="" />
-                <p class="coin--ticker">ADA</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="DOGE"
-                data-key-ticker-value="DOGE"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/doge.svg" alt="" />
-                <p class="coin--ticker">DOGE</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="MATIC"
-                data-key-ticker-value="MATIC"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/matic.svg" alt="" />
-                <p class="coin--ticker">MATIC</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="SOL"
-                data-key-ticker-value="SOL"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/sol.svg" alt="" />
-                <p class="coin--ticker">SOL</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="DOT"
-                data-key-ticker-value="DOT"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/dot.svg" alt="" />
-                <p class="coin--ticker">DOT</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="LTC"
-                data-key-ticker-value="LTC"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/ltc.svg" alt="" />
-                <p class="coin--ticker">LTC</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="BUSD"
-                data-key-ticker-value="BUSD"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/BUSD.svg" alt="" />
-                <p class="coin--ticker">BUSD</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="SHIB"
-                data-key-ticker-value="SHIB"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/shib.svg" alt="" />
-                <p class="coin--ticker">SHIB</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="TRX"
-                data-key-ticker-value="TRX"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/trx.svg" alt="" />
-                <p class="coin--ticker">TRX</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="AVAX"
-                data-key-ticker-value="AVAX"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/avax.svg" alt="" />
-                <p class="coin--ticker">AVAX</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="DAI"
-                data-key-ticker-value="DAI"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/dai.svg" alt="" />
-                <p class="coin--ticker">DAI</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="WBTC"
-                data-key-ticker-value="WBTC"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/wbtc.svg" alt="" />
-                <p class="coin--ticker">WBTC</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="LINK"
-                data-key-ticker-value="LINK"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/link.svg" alt="" />
-                <p class="coin--ticker">LINK</p>
-              </button>
-              <button
-                class="key coin"
-                data-controller="key"
-                data-key-favorite-value="false"
-                data-key-category="all"
-                data-action="click->key#onSelectedCoin"
-                data-ticker="leo"
-                data-key-ticker-value="leo"
-                data-key-selected-value="false"
-                data-key-selected-class="selected"
-                data-keyboard-target="coin"
-              >
-                <img class="coin--icon" src="images/leo.svg" alt="" />
-                <p class="coin--ticker">LEO</p>
-              </button>
-            </div>
-            <button class="keyboard--navigation navigation--next">
-              <i class="uis uis-angle-right-b"></i>
-            </button>
-          </div>
-
-          <div 
-          class="actions" 
-          data-keyboard-target="actions"
-          data-controller="actions"
-          >
-            <button
-              class="key action"
-              data-keyboard-target="key"
-            >
-              <i class="uis uis-arrow-down"></i>
-              <span>Buy</span>
-            </button>
-            <button
-              class="key action"
-              data-keyboard-target="key"
-            >
-              <i class="uis uis-arrow-up"></i>
-              <span>Sell</span>
-            </button>
-            <button
-              class="key action"
-              data-keyboard-target="key"
-            >
-              <i class="uis uis-exchange-alt"></i>
-              <span>Swap</span>
-            </button>
-            <button
-              class="key action"
-              data-keyboard-target="key"
-            >
-              <i class="uis uis-arrow-down-left"></i>
-              <span>Deposit</span>
-            </button>
-            <button
-              class="key action"
-              data-keyboard-target="key"
-            >
-              <i class="uis uis-arrow-up-right"></i>
-              <span>Withdraw</span>
-            </button>
-            <button
-              class="key action"
-              data-content-target="favoriteKeyAction"
-              data-action="click->content#onFavoriteKeyAction"
-            >
-              <i class="uis uis-favorite"></i>
-              <span>Favorite</span>
-            </button>
+          <div class="asset-info--subtitle">
+            <span data-content-target="currencyBalance">21.579,92 <span data-content-target="currency">EUR</span></span>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="bundle.js"></script>
-  </body>
+    <div class="keyboard" data-controller="keyboard" data-keyboard-configuration-value="false"
+      data-action="switch:toggle->keyboard#manageChunksVisibility">
+      <div class="configuration" data-keyboard-target="configuration">
+        <div class="configuration--wrapper">
+          <div class="" data-controller="currency-selector" data-currency-selector-currency-value="EUR">
+            <label for="currency-selector">Display in</label>
+            <select name="currency-selector" id="" data-action="change->currency-selector#currencyChange">
+              <option value="EUR" selected>EUR (€)</option>
+              <option value="USD">USD ($)</option>
+            </select>
+          </div>
+          <div class="switch" data-controller="switch" data-action="click->switch#toggle"
+            data-switch-target-value="categories" data-switch-active-value="true">
+            <div class="switch--element">
+              <div class="switch--indicator"></div>
+            </div>
+            <div class="switch--label">
+              <span data-switch-target="status">Hide</span>
+              <span>categories</span>
+            </div>
+          </div>
+          <div class="switch" data-controller="switch" data-action="click->switch#toggle"
+            data-switch-target-value="actions" data-switch-active-value="true">
+            <div class="switch--element">
+              <div class="switch--indicator"></div>
+            </div>
+            <div class="switch--label">
+              <span data-switch-target="status">Hide</span>
+              <span>actions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notch" data-controller="notch" data-keyboard-target="notch">
+        <i class="uis uis-grip-horizontal-line"></i>
+      </div>
+      <div class="keyboard--wrapper">
+        <div class="control">
+          <div class="search" data-controller="search" data-search-visible-value="false">
+            <div class="search--wrapper">
+              <button class="search--button" data-action="click->search#toggleVisibility" data-search-target="button">
+                <i class="uis uis-search"></i>
+              </button>
+              <input type="text" class="search--input" data-action="keydown->search#onKeyPress"
+                data-search-target="input" />
+              <button class="search--clear" style="display: none" data-action="click->search#clearInput"
+                data-search-target="clear">
+                <i class="uis uis-times"></i>
+              </button>
+            </div>
+          </div>
+
+          <button class="configuration--button" data-keyboard-target="key"
+            data-action="click->keyboard#toggleConfiguration" data-value="configuration">
+            <i class="uis uis-setting"></i>
+          </button>
+        </div>
+
+        <div class="categories" data-keyboard-target="categories">
+          <button class="keyboard--navigation navigation--prev">
+            <i class="uis uis-angle-left-b"></i>
+          </button>
+          <div class="categories--wrapper">
+            <button class="key category" data-keyboard-target="category" data-category="all">
+              <i class="uis uis-scenery"></i>
+              <p class="category--ticker">All</p>
+            </button>
+            <button 
+              class="key category key__favorite" 
+              data-keyboard-target="category" 
+              data-content-target="favoriteKeyCategory"
+              data-category="favorites"
+            >
+              <i class="uis uis-scenery favorites-category-icon"></i>
+              <p class="category--ticker">Favorites</p>
+            </button>
+            <button class="key category" data-keyboard-target="category" data-category="gameFi">
+              <i class="uis uis-scenery"></i>
+              <p class="category--ticker">GameFi</p>
+            </button>
+            <button class="key category" data-keyboard-target="category" data-category="defi">
+              <i class="uis uis-channel"></i>
+              <p class="category--ticker">DeFi</p>
+            </button>
+            <button class="key category" data-keyboard-target="category" data-category="cex">
+              <i class="uis uis-scenery"></i>
+              <p class="category--ticker">CEX</p>
+            </button>
+            <button class="key category" data-keyboard-target="category" data-category="dex">
+              <i class="uis uis-scenery"></i>
+              <p class="category--ticker">DEX</p>
+            </button>
+            <button class="key category" data-keyboard-target="category" data-category="pow">
+              <i class="uis uis-scenery"></i>
+              <p class="category--ticker">PoW</p>
+            </button>
+          </div>
+          <button class="keyboard--navigation navigation--next">
+            <i class="uis uis-angle-right-b"></i>
+          </button>
+        </div>
+
+        <div class="coins">
+          <button class="keyboard--navigation navigation--prev">
+            <i class="uis uis-angle-left-b"></i>
+          </button>
+          <div data-keyboard-target="coins-grid" class="coins--wrapper">
+            <button class="key coin btc" data-controller="key" data-key-favorite-value="true" data-key-category="all"
+              data-keyboard-target="coin" data-action="click->key#onSelectedCoin" data-ticker="BTC"
+              data-key-ticker-value="BTC" data-key-selected-value="true" data-key-selected-class="selected">
+              <img class="coin--icon" src="images/btc.svg" alt="" />
+              <p class="coin--ticker">BTC</p>
+            </button>
+            <button class="key coin eth" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="ETH" data-key-ticker-value="ETH"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/eth.svg" alt="" />
+              <p class="coin--ticker">ETH</p>
+            </button>
+            <button class="key coin usdt" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="USDT" data-key-ticker-value="USDT"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/usdt.svg" alt="" />
+              <p class="coin--ticker">USDT</p>
+            </button>
+            <button class="key coin bnb" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="BNB" data-key-ticker-value="BNB"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/bnb.svg" alt="" />
+              <p class="coin--ticker">BNB</p>
+            </button>
+            <button class="key coin usdc" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="USDC" data-key-ticker-value="USDC"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/usdc.svg" alt="" />
+              <p class="coin--ticker">USDC</p>
+            </button>
+            <button class="key coin matic" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="MATIC" data-key-ticker-value="MATIC"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/matic.svg" alt="" />
+              <p class="coin--ticker">MATIC</p>
+            </button>
+            <button class="key coin XRP" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="XRP" data-key-ticker-value="XRP"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/XRP.svg" alt="" />
+              <p class="coin--ticker">XRP</p>
+            </button>
+            <button class="key coin ada" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="ADA" data-key-ticker-value="ADA"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/ada.svg" alt="" />
+              <p class="coin--ticker">ADA</p>
+            </button>
+            <button class="key coin doge" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="DOGE" data-key-ticker-value="DOGE"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/doge.svg" alt="" />
+              <p class="coin--ticker">DOGE</p>
+            </button>
+            <button class="key coin matic" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="MATIC" data-key-ticker-value="MATIC"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/matic.svg" alt="" />
+              <p class="coin--ticker">MATIC</p>
+            </button>
+            <button class="key coin sol" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="SOL" data-key-ticker-value="SOL"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/sol.svg" alt="" />
+              <p class="coin--ticker">SOL</p>
+            </button>
+            <button class="key coin dot" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="DOT" data-key-ticker-value="DOT"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/dot.svg" alt="" />
+              <p class="coin--ticker">DOT</p>
+            </button>
+            <button class="key coin ltc" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="LTC" data-key-ticker-value="LTC"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/ltc.svg" alt="" />
+              <p class="coin--ticker">LTC</p>
+            </button>
+            <button class="key coin BUSD" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="BUSD" data-key-ticker-value="BUSD"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/BUSD.svg" alt="" />
+              <p class="coin--ticker">BUSD</p>
+            </button>
+            <button class="key coin shib" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="SHIB" data-key-ticker-value="SHIB"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/shib.svg" alt="" />
+              <p class="coin--ticker">SHIB</p>
+            </button>
+            <button class="key coin trx" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="TRX" data-key-ticker-value="TRX"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/trx.svg" alt="" />
+              <p class="coin--ticker">TRX</p>
+            </button>
+            <button class="key coin avax" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="AVAX" data-key-ticker-value="AVAX"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/avax.svg" alt="" />
+              <p class="coin--ticker">AVAX</p>
+            </button>
+            <button class="key coin dai" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="DAI" data-key-ticker-value="DAI"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/dai.svg" alt="" />
+              <p class="coin--ticker">DAI</p>
+            </button>
+            <button class="key coin wbtc" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="WBTC" data-key-ticker-value="WBTC"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/wbtc.svg" alt="" />
+              <p class="coin--ticker">WBTC</p>
+            </button>
+            <button class="key coin link" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="LINK" data-key-ticker-value="LINK"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/link.svg" alt="" />
+              <p class="coin--ticker">LINK</p>
+            </button>
+            <button class="key coin leo" data-controller="key" data-key-favorite-value="false" data-key-category="all"
+              data-action="click->key#onSelectedCoin" data-ticker="leo" data-key-ticker-value="leo"
+              data-key-selected-value="false" data-key-selected-class="selected" data-keyboard-target="coin">
+              <img class="coin--icon" src="images/leo.svg" alt="" />
+              <p class="coin--ticker">LEO</p>
+            </button>
+          </div>
+          <button class="keyboard--navigation navigation--next">
+            <i class="uis uis-angle-right-b"></i>
+          </button>
+        </div>
+
+        <div class="actions" data-keyboard-target="actions" data-controller="actions">
+          <button class="key action" data-keyboard-target="key">
+            <i class="uis uis-arrow-down"></i>
+            <span>Buy</span>
+          </button>
+          <button class="key action" data-keyboard-target="key">
+            <i class="uis uis-arrow-up"></i>
+            <span>Sell</span>
+          </button>
+          <button class="key action" data-keyboard-target="key">
+            <i class="uis uis-exchange-alt"></i>
+            <span>Swap</span>
+          </button>
+          <button class="key action" data-keyboard-target="key">
+            <i class="uis uis-arrow-down-left"></i>
+            <span>Deposit</span>
+          </button>
+          <button class="key action" data-keyboard-target="key">
+            <i class="uis uis-arrow-up-right"></i>
+            <span>Withdraw</span>
+          </button>
+          <button class="key action" data-content-target="favoriteKeyAction"
+            data-action="click->content#onFavoriteKeyAction">
+            <i class="uis uis-favorite"></i>
+            <span>Favorite</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="bundle.js"></script>
+
 </html>

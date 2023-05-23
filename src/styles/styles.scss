@@ -125,6 +125,18 @@ body {
   flex-direction: row;
   gap: 12px;
   align-items: center;
+  &.loading {
+    .asset--image {
+      opacity: 0.4;
+      filter: blur(5px);
+    }
+  }
+}
+
+.asset--image {
+  width: 48px;
+  background-color: #ffffff;
+  transition: 0.2s ease;
 }
 
 .asset--content {
@@ -137,10 +149,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 4px;
-}
-
-.asset--image {
-  width: 48px;
 }
 
 h3 {
@@ -363,6 +371,7 @@ h4 {
   display: grid;
   grid-template-columns: 20px 1fr 20px;
   gap: 4px;
+  position: relative;
 }
 
 .keyboard--navigation {
@@ -436,9 +445,18 @@ h4 {
 
 .coin {
   height: 40px;
-  &.selected{
+
+  &.selected {
     background-color: yellow;
   }
+}
+
+.cloned-icon {
+  z-index: 999;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  transition: transform 0.5s, opacity 0.5s;
 }
 
 .coin--icon {
@@ -470,13 +488,29 @@ h4 {
   font-size: 9px;
 }
 
+@keyframes moveIcon {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(200px, -100px) scale(0.5);
+  }
+
+  100% {
+    transform: translate(400px, 0) scale(1);
+  }
+}
+
 .category {
   grid-row: 1;
   padding: 0 16px;
-  &.active{
+
+  &.active {
     // background-color: red;
     position: relative;
-    &::after{
+
+    &::after {
       position: absolute;
       content: '+1';
       top: 4px;
@@ -488,8 +522,9 @@ h4 {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: $lightSurfaceMedium;
+      background-color: red;
       font-weight: 700;
+      color: white;
     }
   }
 }
