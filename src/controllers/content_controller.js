@@ -1,4 +1,5 @@
 import { Controller } from 'stimulus';
+import { marketData, walletBalances } from '../data';
 
 export default class extends Controller {
     static targets = [
@@ -9,48 +10,65 @@ export default class extends Controller {
         'currencyBalance',
         'name',
         'icon',
-        'currency'
+        'currency',
+        'favoriteKeyAction',
+        'favoriteKeyCategory'
     ];
     static values = {
         change: Number,
+        ticker: String,
+        isFavorite: Boolean,
     };
 
     connect() {
         document.addEventListener('update-content', this.handleUpdateContent);
-        document.addEventListener('update-currency', this.handleUpdateCurrency())
+        document.addEventListener('update-currency', this.handleUpdateCurrency());
+
         this.updateContent();
         this.updateCurrency();
+
+        // document.addEventListener('on-selected-coin', (event) => {
+
+        // })
     }
 
-    disconnect() {
-        document.removeEventListener('update-content');
-        document.removeEventListener('update-currency');
+    onFavoriteKeyAction() {
+        const data = {
+            ticker: this.tickerValue,
+            isFavorite: this.isFavoriteValue,
+        }
+        const onFavoriteEvent = new CustomEvent('on-favorite', { detail: data });
+        document.dispatchEvent(onFavoriteEvent);
+
+        this.favoriteKeyCategoryTarget.classList.add('active');
+        setTimeout(() => {
+            this.favoriteKeyCategoryTarget.classList.remove('active');
+        }, 1000)
     }
 
     handleUpdateContent = (event) => {
         this.updateContent(event.detail[0], event.detail[1]);
-    };
+    }
 
     handleUpdateCurrency(event) {
         this.updateCurrency(event)
-        console.log('dentro handle')
     }
 
-    updateContent() {
-        document.addEventListener('update-content', (event) => {
-            const market = event.detail[0];
-            const balances = event.detail[1];
-            const { change, icon, name, price, ticker } = market
+    onSelectedCoin() {
+        const data = [marketData[this.tickerValue], walletBalances[this.tickerValue]];
+        this.updateContent(data);
+    }
 
-            // Market data => Replaced destructuring object. Clean after refactor explanation.
-            //   const price = market['price'];
-            //   const change = market['change'];
-            //   const ticker = market['ticker'];
-            //   const name = market['name'];
-            //   const icon = market['icon'];
+    updateContent(data) {
+        document.addEventListener('on-selected-coin', (event) => {
+            const selectedTicker = event.detail.ticker
+            const isFavorite = event.detail.isFavorite
+            const category = event.detail.category
+
+            const { change, icon, name, price, ticker } = marketData[selectedTicker.toLowerCase()]
 
             // Balance data
-            const quantity = balances['quantity'];
+            const quantity = walletBalances[selectedTicker.toLowerCase()]['quantity'];
 
             // Calculations
             const currencyBalance = this.getCurrencyBalance(price, quantity);
@@ -127,5 +145,11 @@ export default class extends Controller {
             this.changeDirectionTarget.classList.add('uis-angle-double-down');
             this.changeDirectionTarget.classList.remove('uis-angle-double-up');
         }
+    }
+
+    disconnect() {
+        document.removeEventListener('update-content', this.handleUpdateContent);
+        document.removeEventListener('update-currency', this.handleUpdateCurrency);
+        document.removeEventListener('on-selected-coin', this.onSelectedCoin);
     }
 }
