@@ -74,6 +74,37 @@
           </div>
         </div>
       </div>
+      <div class="operator" data-controller="operator" data-operator-operation-value="buy"
+        data-operator-coin-value="eur" data-operator-increment-value="10">
+
+
+        <div class="operative">
+          <div class="operative--available">
+            <span>Disponible</span>
+            <span data-operator-target="available"></span>
+          </div>
+          <div class="operative--output">
+            <span>Comprando</span>
+            <input class="operator--input" data-operator-target="input" type="number">
+            <span data-operator-target="coin">EUR</span>
+          </div>
+        </div>
+        <button class="operator--button minus" data-operator-target="minus" data-action="click->operator#minus">
+          <i class="uis uis-minus"></i>
+        </button>
+        <div class="operator--input-wrapper">
+          <span style="font-size: 10px;">Recibo</span>
+          <div>
+            <span data-operator-target="outputCoin">0</span>
+          <span data-operator-target="outputCoinCurrency">BTC</span>
+          </div>
+        </div>
+        <button class="operator--button plus" data-operator-target="plus" data-action="click->operator#plus">
+          <i class="uis uis-plus"></i>
+        </button>
+
+        </button>
+      </div>
     </div>
 
     <div class="keyboard" data-controller="keyboard" data-keyboard-configuration-value="false"
@@ -144,12 +175,8 @@
               <i class="uis uis-scenery"></i>
               <p class="category--ticker">All</p>
             </button>
-            <button 
-              class="key category key__favorite" 
-              data-keyboard-target="category" 
-              data-content-target="favoriteKeyCategory"
-              data-category="favorites"
-            >
+            <button class="key category key__favorite" data-keyboard-target="category"
+              data-content-target="favoriteKeyCategory" data-category="favorites">
               <i class="uis uis-scenery favorites-category-icon"></i>
               <p class="category--ticker">Favorites</p>
             </button>

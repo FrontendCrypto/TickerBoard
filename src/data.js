@@ -426,6 +426,10 @@ export const marketData = {
 };
 
 export const walletBalances = {
+  eur: {
+    ticker: 'eur',
+    quantity: 3478.25
+  },
   btc: {
     ticker: 'BTC',
     quantity: 0.876214,
