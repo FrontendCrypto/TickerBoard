@@ -1,4 +1,5 @@
-# TickerBoard (Work in Progress)
+# TickerBoard [DEPRECATED]
+Use Vue version instead: https://github.com/FrontendCrypto/tickerboard-vue
 
 TickerBoard is a web application (work in progress) that displays real-time information about different cryptocurrencies. It aims to allow users to track the price and balance of various cryptocurrencies and will provide a chart to visualize their price trends (currently under development).
 
